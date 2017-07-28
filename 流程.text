@@ -1,0 +1,38 @@
+安装node.js 参考http://www.runoob.com/nodejs/nodejs-install-setup.html
+
+配置环境变量=>系统变量path添加 当前文件路径+\node_modules\.bin; （如：E:\server\node_modules\.bin;）
+
+打开 命令提示符 cd到当前文件夹
+安装项目依赖
+我已经将需要的依赖添加到了package.json中了 直接运行下面的命令就好
+$npm install
+
+接下来就是等待
+
+若想自己配置就抛弃我的package.json 否侧跳过这部分
+创建一个空的package.json
+$npm init
+
+逐条添加依赖
+将vue安装到生产环境中
+$npm install vue -save
+
+将其他依赖安装到开发环境中
+依赖有（babel-core，babel-loader，babel-preset-es2015，css-loader，file-loader，node-sass，sass-loader，"style-loader，url-loader，vue-loader，vue-router，vue-template-compiler，webpack，webpack-dev-server）安装多个以空格分开
+$npm install XXX -save-dev
+
+
+安装结束后文件夹下会出现node_modules文件夹
+
+接下来就是配置webpack.config.js了
+不过我都配置好了 直接用就行
+
+确保demo文件夹在但钱目录下
+要想改文件夹的名字 别忘了修改webpack.config.js中的appName变量
+
+接下来重点到了 开始打包了
+你的命令提示符应该还开着呢 如果关了就重新打开cd到当前文件夹
+$webpack -w
+好了 不出以外的话已经编译成功了
+
+在开发的过程中不要关闭这个命令提示符 他会实时进行编译打包
