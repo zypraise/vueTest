@@ -1,11 +1,13 @@
 <template>
-    <div><h1>{{text}}</h1></div>
+    <div id="about"><h1>{{text}}</h1></div>
 </template>
 <script>
+	
+	import '../assets/styles/view/about.css';
 export default {
   data () {
     return {
-       text: '221'
+       text: '221aa'
     }
   },
   methods:{
