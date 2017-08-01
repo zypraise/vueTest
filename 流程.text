@@ -1,8 +1,10 @@
-安装node.js 参考http://www.runoob.com/nodejs/nodejs-install-setup.html
+﻿安装node.js 参考http://www.runoob.com/nodejs/nodejs-install-setup.html
 
-配置环境变量=>系统变量path添加 当前文件路径+\node_modules\.bin; （如：E:\server\node_modules\.bin;）
+任意找个磁盘新建个文件夹作为自己项目的工作空间
 
-打开 命令提示符 cd到当前文件夹
+配置环境变量=>系统变量path添加 项目空间文件夹路径+\node_modules\.bin; （如：E:\server\node_modules\.bin;）
+
+打开 命令提示符 cd到项目空间文件夹
 安装项目依赖
 我已经将需要的依赖添加到了package.json中了 直接运行下面的命令就好
 $npm install
@@ -18,7 +20,7 @@ $npm init
 $npm install vue -save
 
 将其他依赖安装到开发环境中
-依赖有（babel-core，babel-loader，babel-preset-es2015，css-loader，file-loader，node-sass，sass-loader，"style-loader，url-loader，vue-loader，vue-router，vue-template-compiler，webpack，webpack-dev-server）安装多个以空格分开
+依赖有（babel-core，babel-loader，babel-preset-es2015，css-loader，extract-text-webpack-plugin，file-loader，node-sass，sass-loader，"style-loader，url-loader，vue-loader，vue-router，vue-template-compiler，webpack，webpack-dev-server）安装多个以空格分开
 $npm install XXX -save-dev
 
 
