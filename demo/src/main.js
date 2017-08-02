@@ -1,13 +1,15 @@
 //main.js这是项目的核心文件。全局的配置都在这个文件里面配置
 import Vue from 'vue';
-import App from './App.vue'
-import router from './routes.js'
-
+import App from './App.vue';
+import router from './routes.js';
+import axios from './assets/js/axios.min.js';
 import './assets/styles/base.css';
 import './assets/styles/swiper.css';
 import './assets/js/swiper.js';
 Vue.config.debug = true;//开启错误提示
+window.axios = axios;
 
+window.bus = new Vue({});
 new Vue({
         router,
         el: '#appIndex',
