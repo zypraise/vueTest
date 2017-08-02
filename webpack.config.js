@@ -18,7 +18,6 @@ module.exports = {
                 options: {
                     loaders: {
                     }
-                    // other vue-loader options go here
                 }
             },
             {
@@ -28,7 +27,7 @@ module.exports = {
             },
             {
                 test: /\.((woff2?|svg)(\?v=[0-9]\.[0-9]\.[0-9]))|(woff2?|svg|jpe?g|png|gif|ico)$/,
-                loader: 'url-loader?importLoaders=1&name=[name].[ext]'
+                loader: 'url-loader?importLoaders=1&limit=100&name=[name].[ext]'
             },
             { 
                 test: /\.css$/,
@@ -40,7 +39,7 @@ module.exports = {
         ]
     },
     plugins: [
-      new ExtractTextPlugin("./styles.css"),
+      new ExtractTextPlugin("./styles.css")
     ],
     resolve: {
         alias: {
@@ -51,31 +50,6 @@ module.exports = {
         historyApiFallback: true,//不跳转
         noInfo: true,
         inline: true//实时刷新
-    },
-    performance: {
-        hints: false
-    },
-    devtool: '#eval-source-map'
-}
-
-if (process.env.NODE_ENV === 'production') {
-    module.exports.devtool = '#source-map'
-    // http://vue-loader.vuejs.org/en/workflow/production.html
-    module.exports.plugins = (module.exports.plugins || []).concat([
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"production"'
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            compress: {
-                warnings: false
-            }
-        }),
-        new webpack.LoaderOptionsPlugin({
-            minimize: true
-        })
-    ])
+    }
 }
 
