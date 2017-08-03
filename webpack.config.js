@@ -12,44 +12,32 @@ module.exports = {
     },
     module: {
         rules: [
+            {test: /\.vue$/,loader: 'vue-loader'},
             {
-                test: /\.vue$/,
-                loader: 'vue-loader',
-                options: {
-                    loaders: {
-                    }
-                }
+            	test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+            	loader: 'url-loader?importLoaders=1&limit=1000&name=fonts/[name].[ext]'
             },
             {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/
-            },
-            {
-                test: /\.((woff2?|svg)(\?v=[0-9]\.[0-9]\.[0-9]))|(woff2?|svg|jpe?g|png|gif|ico)$/,
-                loader: 'url-loader?importLoaders=1&limit=100&name=[name].[ext]'
+                test: /\.(png|jpg|gif)(\?.*$|$)/,
+                loader: 'url-loader?importLoaders=1&limit=1000&name=images/[name].[ext]'
             },
             { 
                 test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                  fallback: "style-loader",
-                  use: "css-loader"
-                })
+                loader: ExtractTextPlugin.extract({
+		            loader: [
+		                {
+		                    loader: 'css-loader',
+		                    query: {
+		                        modules: true
+		                    }
+		                }
+		            ]
+		        })
             }
         ]
     },
     plugins: [
       new ExtractTextPlugin("./styles.css")
-    ],
-    resolve: {
-        alias: {
-            'vue$': 'vue/dist/vue.esm.js'
-        }
-    },
-    devServer: {//webpack-dev-server配置
-        historyApiFallback: true,//不跳转
-        noInfo: true,
-        inline: true//实时刷新
-    }
+    ]
 }
 
